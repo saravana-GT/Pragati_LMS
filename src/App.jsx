@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { Toaster } from 'react-hot-toast';
@@ -66,7 +66,7 @@ export default function App() {
   const isAdmin = (user && user.email === ADMIN_EMAIL) || (demoUser && demoUser.email === 'admin@pragati.com');
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Toaster position="top-right" />
       
       {!user ? (
@@ -82,6 +82,6 @@ export default function App() {
           </Routes>
         )
       )}
-    </BrowserRouter>
+    </HashRouter>
   );
 }
